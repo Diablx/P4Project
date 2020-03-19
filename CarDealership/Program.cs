@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//dev usings
+//My usings
 using CarDealership.Models;
-
 
 namespace CarDealership
 {
@@ -13,23 +12,17 @@ namespace CarDealership
     {
         public static void Main()
         {
-            var ad = new Advertisement();
-            var car = new Car();
-            var person = new Person();
+            Task.WhenAll(
+                Car.InsertCar(), 
+                Car.ShowCars(Car.SelectCars()), 
+                Car.FindByVin("123asd123asd123"), 
+                Advertisement.InsertAdvertisement(), 
+                Advertisement.GetAdvertisements(Advertisement.SelectAdvertisements())
+            );
 
-            try
-            {
-                car.Select();
-                Console.WriteLine();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                Console.WriteLine("Pokazano ... ");
-            }
+            //var ad = new Advertisement();
+            //var person = new Person();
+            Console.ReadLine();
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Threading.Tasks;
 
 namespace CarDealership.Models
 {
@@ -16,7 +19,7 @@ namespace CarDealership.Models
         public Person Person { get; set; }
         [ForeignKey("Pesel")]
         public int Salesman { get; set; }
-        
+
         //default ctor
         public Advertisement()
         {
@@ -24,39 +27,61 @@ namespace CarDealership.Models
         }
 
         //ctor
-        public Advertisement(int iD, string car, float price, int salesman)
+        public Advertisement(Car car, float price, int salesman)
         {
-            
-            ID = iD;
-            Car_ID = car;
+            Car = car;
             Price = price;
             Salesman = salesman;
         }
 
-        /// <summary>
-        /// Function to add advertisement
-        /// </summary>
-        /// <param name="id">id of advertisement</param>
-        /// <param name="car">car id ( id )</param>
-        /// <param name="price">price of car set in advertisement</param>
-        /// <param name="salesmanID">id of employee</param>
-        /// <returns>Advertisement</returns>
-        public Advertisement CreateAdvertisement(int id, string car, float price, int salesmanID)
+        public static async Task<Advertisement> InsertAdvertisement()
         {
-            Advertisement advertisement = new Advertisement(id,car,price,salesmanID);
-
-            return advertisement;
+            Advertisement ad = null;
+            try
+            {
+                Context ctx = new Context();
+                ad = new Advertisement(
+                    await Car.FindByVin("123asd123asd123"),
+                    200000f,
+                    await Person.FindPersonByPeselAsync(1111111)
+                    );
+                await ctx.Advertisements.AddAsync(ad);
+                await ctx.SaveChangesAsync();
+                return ad;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Console.WriteLine($"Dodano ogłoszenie {ad.ID}!");
+            }
         }
 
-        public List<Advertisement> Advertisements;
-
-        public List<Advertisement> SelectAdvertisements()
+        public static async Task<List<Advertisement>> SelectAdvertisements()
         {
-            Advertisements = new List<Advertisement>();
-            //string query = 
+            try
+            {
+                Context ctx = new Context();
+                return await ctx.Advertisements.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
+        public static async Task GetAdvertisements(Task<List<Advertisement>> entityAdvertisements)
+        {
+            var advertisements = await entityAdvertisements;
 
-            return Advertisements;
+            foreach (var item in advertisements)
+            {
+                Console.WriteLine($"{nameof(item.Price)}:{item.Price}" +
+                                  $"{nameof(item.Car.Brand)}: {item.Car.Brand}\n" +
+                                  $"{nameof(item.Car.VIN)}:{item.Car.VIN}"); 
+            }
         }
     }
 }

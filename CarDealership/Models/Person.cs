@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace CarDealership.Models
 {
@@ -35,10 +33,18 @@ namespace CarDealership.Models
             PhoneNumber = phoneNumber;
         }
 
-        public Person CreateEmployee(int iD, string login, string firstname, string lastname, string address, int phoneNumber) 
+        public Person CreateEmployee(int iD, string login, string firstname, string lastname, string address, int phoneNumber)
         {
-            Person person = new Person(iD,login,firstname,lastname,address,phoneNumber);
+            Person person = new Person(iD, login, firstname, lastname, address, phoneNumber);
             return person;
+        }
+
+        public static async Task<int> FindPersonByPeselAsync(int fitler)
+        {
+            Context ctx = new Context();
+            var filteredPerson = await ctx.People.Where(x => x.Pesel == fitler).FirstOrDefaultAsync();
+
+            return filteredPerson.Pesel;
         }
     }
 }

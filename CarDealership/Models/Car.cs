@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CarDealership.Models
 {
@@ -19,7 +18,7 @@ namespace CarDealership.Models
         public string VIN { get; set; }
         [Required]
         public string Brand { get; set; }
-        [Required] 
+        [Required]
         public string Model { get; set; }
         [Required]
         public string Type { get; set; }
@@ -68,62 +67,104 @@ namespace CarDealership.Models
             Shift_Paddles = shift_Paddles;
         }
 
-        public void Select()
+        /// <summary>
+        /// ( async ) Function which returns list of cars from db
+        /// </summary>
+        /// <returns></returns>
+        public async static Task<List<Car>> SelectCars()
         {
-            Context context = new Context();
-            var cars = context.Cars.ToList();
+            try
+            {
+                Context ctx = new Context();
+                return await ctx.Cars.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// ( async ) Function to show cars returned from db
+        /// </summary>
+        /// <param name="entityCars">Task of list of cars ( easily placed with SelectCars function</param>
+        /// <returns>Task</returns>
+        public async static Task ShowCars(Task<List<Car>> entityCars)
+        {
+            var cars = await entityCars;
 
             foreach (var car in cars)
             {
                 Console.WriteLine($"Car nr:{cars.IndexOf(car)} with {nameof(car.VIN)}:{car.VIN}");
                 Console.WriteLine(Environment.NewLine);
-                Console.WriteLine($"{nameof(car.Brand)}:{car.Brand}\n{nameof(car.Model)}:{nameof(car.Model)}");
+                Console.WriteLine($"{nameof(car.Brand)}:{car.Brand}\n" +
+                                  $"{nameof(car.Model)}:{car.Model}");
                 Console.WriteLine(Environment.NewLine);
             }
-            Console.ReadLine();
         }
 
-
-        //TO DO: TextBox.Text and checkboxes as parameters
+        //TO DO: TextBox.Text and CheckBox.IsChecked as parameters
         /// <summary>
-        /// Creates a car
+        /// (async) Creates a car object which is added to , and saves context asynchronously
         /// </summary>
-        /// <returns>car</returns>
-        public Car Insert()
+        /// <returns>car object</returns>
+        public async static Task<Car> InsertCar()
         {
-            Context context = new Context();
-            //new car object
-            Car car = new Car(
-                "123asd123asd123", //VIN [ vehicle identification number ] 
-                "Mitsubishi", //brand [ fiat,mitsubishi,seat ... ]
-                "Lancer", //model [ ibiza,tipo,lancer ... ]
-                "Sedan", //type [ sedan, coupe, hetchback, SUV, minivan, VAN ] 
-                1800, //engine [cm3]
-                190, //HP [km]
-                new DateTime(2008,10,10), //prodyear [year]
-                100000, //mileage [kms]
-                "Benzyna", //combustion [petrol,diesel,hybrid,
-                "Red", //color []
-                "Used", //condition [new,used,broken]
-                "Manual", //gearbox [manual, automatic]
-                true, //GPS [t/f]
-                true, //ESP [t/f]
-                true, //AC [t/f]
-                true, //parkassist [t/f]
-                true //shift paddles [t/f]
-            );
-            context.Cars.Add(car);
-            return car;
+            Car car = null;
+            try
+            {
+                Context context = new Context();
+                //new car object
+                car = new Car(
+                    "123asd123asd123",
+                    "Mitsubishi",
+                    "Lancer",
+                    "Sedan",
+                    1800,
+                    190,
+                    new DateTime(2008, 10, 10),
+                    100000,
+                    "Benzyna",
+                    "Red",
+                    "Used",
+                    "Manual",
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                );
+
+                //adds 'car' to db
+                await context.Cars.AddAsync(car);
+                Console.WriteLine("Added car!");
+
+                //saves changes in context and sends to db
+                await context.SaveChangesAsync();
+                Console.WriteLine("Context saved!");
+                
+                return car;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Console.WriteLine($"Added car {car.VIN}");
+            }
         }
+
         /// <summary>
-        /// Update car in DB
+        /// ( async )Filter list to look for a car with selected vin
         /// </summary>
         /// <returns></returns>
-        public Car SelectByVin()
+        public async static Task<Car> FindByVin(string filter)
         {
             Context context = new Context();
-            var selectedCar = context.Cars.Where(x => x.VIN == "").FirstOrDefault(); 
-            return selectedCar;
+            //linq query to look for a car with specific parameter ( vin only )
+            var searchedCar = await context.Cars.Where(x => x.VIN == filter).FirstOrDefaultAsync();
+            return searchedCar;
         }
     }
 }
