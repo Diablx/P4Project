@@ -2,6 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace CarDealership.Models
 {
@@ -33,12 +35,53 @@ namespace CarDealership.Models
             PhoneNumber = phoneNumber;
         }
 
-        public Person CreateEmployee(int iD, string login, string firstname, string lastname, string address, int phoneNumber)
+        //public Person CreateEmployee(int iD, string login, string firstname, string lastname, string address, int phoneNumber)
+        //{
+        //    Person person = new Person(iD, login, firstname, lastname, address, phoneNumber);
+        //    return person;
+        //}
+
+
+        /// <summary>
+        /// Inserts person object to db
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<Person> InsertPerson()
         {
-            Person person = new Person(iD, login, firstname, lastname, address, phoneNumber);
-            return person;
+            Person person = null;
+            try
+            {
+                Context ctx = new Context();
+                person = new Person(
+                    1515232315, 
+                    "kajbor", 
+                    "kajetan", 
+                    "boruta", 
+                    "Pszczyna", 
+                    515232199
+                    );
+                //add person to db
+                await ctx.AddAsync(person);
+                //save changes
+                await ctx.SaveChangesAsync();
+                return person;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                MessageBox.Show($"Added person: {person.Pesel}");
+            }
         }
 
+        /// <summary>
+        /// Function to find person by Pesel
+        /// </summary>
+        /// <param name="fitler"></param>
+        /// <returns></returns>
         public static async Task<int> FindPersonByPeselAsync(int fitler)
         {
             Context ctx = new Context();

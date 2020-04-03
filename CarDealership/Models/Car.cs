@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CarDealership.Models
 {
@@ -80,26 +81,23 @@ namespace CarDealership.Models
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
+                return null;
             }
         }
 
         /// <summary>
         /// ( async ) Function to show cars returned from db
-        /// </summary>
+        /// </summary> 
         /// <param name="entityCars">Task of list of cars ( easily placed with SelectCars function</param>
         /// <returns>Task</returns>
-        public async static Task ShowCars(Task<List<Car>> entityCars)
+        public static void ShowCars(List<Car> entityCars, ListView listControl)
         {
-            var cars = await entityCars;
+            var cars = entityCars;
 
             foreach (var car in cars)
             {
-                Console.WriteLine($"Car nr:{cars.IndexOf(car)} with {nameof(car.VIN)}:{car.VIN}");
-                Console.WriteLine(Environment.NewLine);
-                Console.WriteLine($"{nameof(car.Brand)}:{car.Brand}\n" +
-                                  $"{nameof(car.Model)}:{car.Model}");
-                Console.WriteLine(Environment.NewLine);
+                listControl.Items.Add($"Brand: {car.Brand},Model: {car.Model},Condition: {car.Condition},Engine: {car.Engine} cm3");
             }
         }
 
@@ -147,11 +145,12 @@ namespace CarDealership.Models
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
+                return null;
             }
             finally
             {
-                Console.WriteLine($"Added car {car.VIN}");
+                MessageBox.Show($"Added car {car.VIN}");
             }
         }
 

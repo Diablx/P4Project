@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CarDealership.Models
 {
@@ -51,11 +52,12 @@ namespace CarDealership.Models
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
+                return null;
             }
             finally
             {
-                Console.WriteLine($"Dodano ogłoszenie {ad.ID}!");
+                MessageBox.Show($"Dodano ogłoszenie {ad.ID}!");
             }
         }
 
@@ -68,20 +70,21 @@ namespace CarDealership.Models
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
 
-        public static async Task GetAdvertisements(Task<List<Advertisement>> entityAdvertisements)
-        {
-            var advertisements = await entityAdvertisements;
+        //public static async Task GetAdvertisements(Task<List<Advertisement>> entityAdvertisements)
+        //{
+        //    var advertisements = await entityAdvertisements;
 
-            foreach (var item in advertisements)
-            {
-                Console.WriteLine($"{nameof(item.Price)}:{item.Price}" +
-                                  $"{nameof(item.Car.Brand)}: {item.Car.Brand}\n" +
-                                  $"{nameof(item.Car.VIN)}:{item.Car.VIN}"); 
-            }
-        }
+        //    foreach (var item in advertisements)
+        //    {
+        //        Console.WriteLine($"{nameof(item.Price)}:{item.Price}" +
+        //                          $"{nameof(item.Car.Brand)}: {item.Car.Brand}\n" +
+        //                          $"{nameof(item.Car.VIN)}:{item.Car.VIN}"); 
+        //    }
+        //}
     }
 }
