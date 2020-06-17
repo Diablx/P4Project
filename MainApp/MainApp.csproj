@@ -212,6 +212,9 @@
       <Name>CarDealership</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\car-mitsubishi1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

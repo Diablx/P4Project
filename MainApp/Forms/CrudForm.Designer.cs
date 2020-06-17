@@ -28,60 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.vin_tb = new System.Windows.Forms.TextBox();
+            this.model_tb = new System.Windows.Forms.TextBox();
+            this.brand_tb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.type_cb = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.productionYear_tb = new System.Windows.Forms.DateTimePicker();
+            this.engine_tb = new System.Windows.Forms.NumericUpDown();
+            this.hp_tb = new System.Windows.Forms.NumericUpDown();
+            this.mileage_tb = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.combustion_cb = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.color_tb = new System.Windows.Forms.TextBox();
+            this.transmission_cb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.gps_b = new System.Windows.Forms.CheckBox();
+            this.esp_b = new System.Windows.Forms.CheckBox();
+            this.AC_b = new System.Windows.Forms.CheckBox();
+            this.parkAs_b = new System.Windows.Forms.CheckBox();
+            this.paddles_b = new System.Windows.Forms.CheckBox();
+            this.condition_cb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.db_Add = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.engine_tb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hp_tb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mileage_tb)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // vin_tb
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
-            this.textBox1.TabIndex = 0;
+            this.vin_tb.Location = new System.Drawing.Point(12, 58);
+            this.vin_tb.Name = "vin_tb";
+            this.vin_tb.Size = new System.Drawing.Size(310, 20);
+            this.vin_tb.TabIndex = 0;
             // 
-            // textBox2
+            // model_tb
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 20);
-            this.textBox2.TabIndex = 1;
+            this.model_tb.Location = new System.Drawing.Point(12, 136);
+            this.model_tb.Name = "model_tb";
+            this.model_tb.Size = new System.Drawing.Size(310, 20);
+            this.model_tb.TabIndex = 2;
             // 
-            // textBox4
+            // brand_tb
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(310, 20);
-            this.textBox4.TabIndex = 3;
+            this.brand_tb.AcceptsTab = true;
+            this.brand_tb.Location = new System.Drawing.Point(12, 97);
+            this.brand_tb.Name = "brand_tb";
+            this.brand_tb.Size = new System.Drawing.Size(310, 20);
+            this.brand_tb.TabIndex = 1;
             // 
             // label1
             // 
@@ -119,10 +122,10 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Type";
             // 
-            // comboBox1
+            // type_cb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.type_cb.FormattingEnabled = true;
+            this.type_cb.Items.AddRange(new object[] {
             "Sedan",
             "Coupe",
             "Hatchback",
@@ -130,10 +133,10 @@
             "SUV",
             "VAN",
             ""});
-            this.comboBox1.Location = new System.Drawing.Point(12, 175);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(309, 21);
-            this.comboBox1.TabIndex = 8;
+            this.type_cb.Location = new System.Drawing.Point(12, 175);
+            this.type_cb.Name = "type_cb";
+            this.type_cb.Size = new System.Drawing.Size(309, 21);
+            this.type_cb.TabIndex = 3;
             // 
             // label5
             // 
@@ -162,36 +165,51 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Production Year";
             // 
-            // dateTimePicker1
+            // productionYear_tb
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 292);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(309, 20);
-            this.dateTimePicker1.TabIndex = 15;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 3, 20, 0, 0, 0, 0);
+            this.productionYear_tb.Location = new System.Drawing.Point(12, 292);
+            this.productionYear_tb.MaxDate = new System.DateTime(2021, 12, 31, 0, 0, 0, 0);
+            this.productionYear_tb.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.productionYear_tb.Name = "productionYear_tb";
+            this.productionYear_tb.Size = new System.Drawing.Size(309, 20);
+            this.productionYear_tb.TabIndex = 8;
+            this.productionYear_tb.Value = new System.DateTime(2020, 3, 20, 0, 0, 0, 0);
             // 
-            // numericUpDown1
+            // engine_tb
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 215);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(80, 20);
-            this.numericUpDown1.TabIndex = 16;
+            this.engine_tb.Location = new System.Drawing.Point(12, 215);
+            this.engine_tb.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.engine_tb.Name = "engine_tb";
+            this.engine_tb.Size = new System.Drawing.Size(80, 20);
+            this.engine_tb.TabIndex = 4;
             // 
-            // numericUpDown2
+            // hp_tb
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(127, 215);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(80, 20);
-            this.numericUpDown2.TabIndex = 17;
+            this.hp_tb.Location = new System.Drawing.Point(127, 215);
+            this.hp_tb.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.hp_tb.Name = "hp_tb";
+            this.hp_tb.Size = new System.Drawing.Size(80, 20);
+            this.hp_tb.TabIndex = 5;
             // 
-            // numericUpDown3
+            // mileage_tb
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(241, 215);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(80, 20);
-            this.numericUpDown3.TabIndex = 19;
+            this.mileage_tb.Location = new System.Drawing.Point(241, 215);
+            this.mileage_tb.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.mileage_tb.Name = "mileage_tb";
+            this.mileage_tb.Size = new System.Drawing.Size(80, 20);
+            this.mileage_tb.TabIndex = 6;
             // 
             // label8
             // 
@@ -202,18 +220,18 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Mileage ( km )";
             // 
-            // comboBox2
+            // combustion_cb
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.combustion_cb.FormattingEnabled = true;
+            this.combustion_cb.Items.AddRange(new object[] {
             "Petrol",
             "Petrol + Gas Installation ",
             "Diesel",
             "Hybrid"});
-            this.comboBox2.Location = new System.Drawing.Point(12, 331);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(309, 21);
-            this.comboBox2.TabIndex = 21;
+            this.combustion_cb.Location = new System.Drawing.Point(12, 331);
+            this.combustion_cb.Name = "combustion_cb";
+            this.combustion_cb.Size = new System.Drawing.Size(309, 21);
+            this.combustion_cb.TabIndex = 9;
             // 
             // label9
             // 
@@ -233,24 +251,24 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Color";
             // 
-            // textBox3
+            // color_tb
             // 
-            this.textBox3.Location = new System.Drawing.Point(11, 371);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(310, 20);
-            this.textBox3.TabIndex = 22;
+            this.color_tb.Location = new System.Drawing.Point(11, 371);
+            this.color_tb.Name = "color_tb";
+            this.color_tb.Size = new System.Drawing.Size(310, 20);
+            this.color_tb.TabIndex = 10;
             // 
-            // comboBox3
+            // transmission_cb
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.transmission_cb.FormattingEnabled = true;
+            this.transmission_cb.Items.AddRange(new object[] {
             "Automatic",
             "Half Automatic",
             "Manual"});
-            this.comboBox3.Location = new System.Drawing.Point(11, 410);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(309, 21);
-            this.comboBox3.TabIndex = 25;
+            this.transmission_cb.Location = new System.Drawing.Point(11, 410);
+            this.transmission_cb.Name = "transmission_cb";
+            this.transmission_cb.Size = new System.Drawing.Size(309, 21);
+            this.transmission_cb.TabIndex = 11;
             // 
             // label11
             // 
@@ -261,69 +279,69 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Transmission";
             // 
-            // checkBox1
+            // gps_b
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 437);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(48, 17);
-            this.checkBox1.TabIndex = 26;
-            this.checkBox1.Text = "GPS";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.gps_b.AutoSize = true;
+            this.gps_b.Location = new System.Drawing.Point(12, 437);
+            this.gps_b.Name = "gps_b";
+            this.gps_b.Size = new System.Drawing.Size(48, 17);
+            this.gps_b.TabIndex = 12;
+            this.gps_b.Text = "GPS";
+            this.gps_b.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // esp_b
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(98, 437);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(47, 17);
-            this.checkBox2.TabIndex = 27;
-            this.checkBox2.Text = "ESP";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.esp_b.AutoSize = true;
+            this.esp_b.Location = new System.Drawing.Point(98, 437);
+            this.esp_b.Name = "esp_b";
+            this.esp_b.Size = new System.Drawing.Size(47, 17);
+            this.esp_b.TabIndex = 13;
+            this.esp_b.Text = "ESP";
+            this.esp_b.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // AC_b
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(184, 437);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(40, 17);
-            this.checkBox3.TabIndex = 28;
-            this.checkBox3.Text = "AC";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.AC_b.AutoSize = true;
+            this.AC_b.Location = new System.Drawing.Point(184, 437);
+            this.AC_b.Name = "AC_b";
+            this.AC_b.Size = new System.Drawing.Size(40, 17);
+            this.AC_b.TabIndex = 14;
+            this.AC_b.Text = "AC";
+            this.AC_b.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // parkAs_b
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(12, 460);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(77, 17);
-            this.checkBox4.TabIndex = 29;
-            this.checkBox4.Text = "Park assist";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.parkAs_b.AutoSize = true;
+            this.parkAs_b.Location = new System.Drawing.Point(12, 460);
+            this.parkAs_b.Name = "parkAs_b";
+            this.parkAs_b.Size = new System.Drawing.Size(77, 17);
+            this.parkAs_b.TabIndex = 15;
+            this.parkAs_b.Text = "Park assist";
+            this.parkAs_b.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // paddles_b
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(98, 460);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(87, 17);
-            this.checkBox5.TabIndex = 30;
-            this.checkBox5.Text = "Shift paddles";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.paddles_b.AutoSize = true;
+            this.paddles_b.Location = new System.Drawing.Point(98, 460);
+            this.paddles_b.Name = "paddles_b";
+            this.paddles_b.Size = new System.Drawing.Size(87, 17);
+            this.paddles_b.TabIndex = 16;
+            this.paddles_b.Text = "Shift paddles";
+            this.paddles_b.UseVisualStyleBackColor = true;
             // 
-            // comboBox4
+            // condition_cb
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.condition_cb.FormattingEnabled = true;
+            this.condition_cb.Items.AddRange(new object[] {
             "New",
             "Rental",
             "Leased",
             "Used",
             "Broken"});
-            this.comboBox4.Location = new System.Drawing.Point(12, 254);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(309, 21);
-            this.comboBox4.TabIndex = 32;
+            this.condition_cb.Location = new System.Drawing.Point(12, 254);
+            this.condition_cb.Name = "condition_cb";
+            this.condition_cb.Size = new System.Drawing.Size(309, 21);
+            this.condition_cb.TabIndex = 7;
             // 
             // label12
             // 
@@ -334,45 +352,67 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "Condition";
             // 
+            // db_Add
+            // 
+            this.db_Add.Location = new System.Drawing.Point(12, 505);
+            this.db_Add.Name = "db_Add";
+            this.db_Add.Size = new System.Drawing.Size(298, 29);
+            this.db_Add.TabIndex = 17;
+            this.db_Add.Text = "Dodaj samochód";
+            this.db_Add.UseVisualStyleBackColor = true;
+            this.db_Add.Click += new System.EventHandler(this.db_Add_Click);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(53, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(221, 13);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "FORMULARZ DODANIA/EDYCJI POJAZDU";
+            // 
             // CrudForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 544);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.db_Add);
+            this.Controls.Add(this.condition_cb);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.paddles_b);
+            this.Controls.Add(this.parkAs_b);
+            this.Controls.Add(this.AC_b);
+            this.Controls.Add(this.esp_b);
+            this.Controls.Add(this.gps_b);
+            this.Controls.Add(this.transmission_cb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.color_tb);
+            this.Controls.Add(this.combustion_cb);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.mileage_tb);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.hp_tb);
+            this.Controls.Add(this.engine_tb);
+            this.Controls.Add(this.productionYear_tb);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.type_cb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.brand_tb);
+            this.Controls.Add(this.model_tb);
+            this.Controls.Add(this.vin_tb);
             this.Name = "CrudForm";
             this.Text = "CRUD";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.engine_tb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hp_tb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mileage_tb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,34 +420,36 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox vin_tb;
+        private System.Windows.Forms.TextBox model_tb;
+        private System.Windows.Forms.TextBox brand_tb;
+        private System.Windows.Forms.ComboBox type_cb;
+        private System.Windows.Forms.DateTimePicker productionYear_tb;
+        private System.Windows.Forms.NumericUpDown engine_tb;
+        private System.Windows.Forms.NumericUpDown hp_tb;
+        private System.Windows.Forms.NumericUpDown mileage_tb;
+        private System.Windows.Forms.ComboBox combustion_cb;
+        private System.Windows.Forms.TextBox color_tb;
+        private System.Windows.Forms.ComboBox transmission_cb;
+        private System.Windows.Forms.CheckBox gps_b;
+        private System.Windows.Forms.CheckBox esp_b;
+        private System.Windows.Forms.CheckBox AC_b;
+        private System.Windows.Forms.CheckBox parkAs_b;
+        private System.Windows.Forms.CheckBox paddles_b;
+        private System.Windows.Forms.ComboBox condition_cb;
+        private System.Windows.Forms.Button db_Add;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

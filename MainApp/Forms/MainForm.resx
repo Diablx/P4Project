@@ -122,10 +122,37 @@
     <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RentView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Add_Car.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Add_Car.Location" type="System.Drawing.Point, System.Drawing">
+    <value>631, 3</value>
+  </data>
+  <data name="Add_Car.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 32</value>
+  </data>
+  <data name="Add_Car.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="Add_Car.Text" xml:space="preserve">
+    <value>Add car</value>
+  </data>
+  <data name="&gt;&gt;Add_Car.Name" xml:space="preserve">
+    <value>Add_Car</value>
+  </data>
+  <data name="&gt;&gt;Add_Car.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Add_Car.Parent" xml:space="preserve">
+    <value>MenuPanel</value>
+  </data>
+  <data name="&gt;&gt;Add_Car.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RentView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="RentView_Button.Location" type="System.Drawing.Point, System.Drawing">
     <value>474, 3</value>
   </data>
@@ -148,7 +175,7 @@
     <value>MenuPanel</value>
   </data>
   <data name="&gt;&gt;RentView_Button.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="AuctionsView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -175,7 +202,7 @@
     <value>MenuPanel</value>
   </data>
   <data name="&gt;&gt;AuctionsView_Button.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="CarsView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -202,7 +229,7 @@
     <value>MenuPanel</value>
   </data>
   <data name="&gt;&gt;CarsView_Button.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="MainView_Button.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -226,7 +253,7 @@
     <value>MenuPanel</value>
   </data>
   <data name="&gt;&gt;MainView_Button.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="MenuPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

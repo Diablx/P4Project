@@ -37,6 +37,7 @@
             this.MainView_Button = new System.Windows.Forms.Button();
             this.Cars_Panel = new System.Windows.Forms.Panel();
             this.ListView1 = new System.Windows.Forms.ListView();
+            this.Add_Car = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             this.Cars_Panel.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // MenuPanel
             // 
+            this.MenuPanel.Controls.Add(this.Add_Car);
             this.MenuPanel.Controls.Add(this.RentView_Button);
             this.MenuPanel.Controls.Add(this.AuctionsView_Button);
             this.MenuPanel.Controls.Add(this.CarsView_Button);
@@ -103,6 +105,13 @@
             this.ListView1.UseCompatibleStateImageBehavior = false;
             this.ListView1.View = System.Windows.Forms.View.List;
             // 
+            // Add_Car
+            // 
+            resources.ApplyResources(this.Add_Car, "Add_Car");
+            this.Add_Car.Name = "Add_Car";
+            this.Add_Car.UseVisualStyleBackColor = true;
+            this.Add_Car.Click += new System.EventHandler(this.Add_Car_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -126,5 +135,6 @@
         private System.Windows.Forms.Button MainView_Button;
         private System.Windows.Forms.Panel Cars_Panel;
         private System.Windows.Forms.ListView ListView1;
+        private System.Windows.Forms.Button Add_Car;
     }
 }

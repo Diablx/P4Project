@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,10 +97,26 @@ namespace CarDealership.Models
         {
             var cars = entityCars;
 
+            Image img = Image.FromFile(@"C:\Users\kajet\Source\Repos\P4Project\MainApp\images\car-mitsubishi1.png");
+            ImageList imglist = new ImageList();
+            imglist.Images.Add(img);
+
+            listControl.View = View.LargeIcon;
+            imglist.ImageSize = new Size(150,150);
+            listControl.LargeImageList = imglist;
+
+            for (int j = 0; j < imglist.Images.Count; j++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = j;
+                listControl.Items.Add(item);
+            }
             foreach (var car in cars)
             {
                 listControl.Items.Add($"Brand: {car.Brand},Model: {car.Model},Condition: {car.Condition},Engine: {car.Engine} cm3");
             }
+
+
         }
 
         //TO DO: TextBox.Text and CheckBox.IsChecked as parameters
@@ -106,32 +124,11 @@ namespace CarDealership.Models
         /// (async) Creates a car object which is added to , and saves context asynchronously
         /// </summary>
         /// <returns>car object</returns>
-        public async static Task<Car> InsertCar()
+        public async static Task<Car> InsertCar(Car car)
         {
-            Car car = null;
             try
             {
                 Context context = new Context();
-                //new car object
-                car = new Car(
-                    "123asd123asd123",
-                    "Mitsubishi",
-                    "Lancer",
-                    "Sedan",
-                    1800,
-                    190,
-                    new DateTime(2008, 10, 10),
-                    100000,
-                    "Benzyna",
-                    "Red",
-                    "Used",
-                    "Manual",
-                    true,
-                    true,
-                    true,
-                    true,
-                    true
-                );
 
                 //adds 'car' to db
                 await context.Cars.AddAsync(car);
