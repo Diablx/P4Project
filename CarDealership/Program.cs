@@ -12,14 +12,17 @@ namespace CarDealership
     {
         public static void Main()
         {
-            Task.WhenAll(
-                Car.SelectCars(),
-                //Car.InsertCar(),
-                //Car.ShowCars(Car.SelectCars()),
-                //Car.FindByVin("123asd123asd123"),
-                Advertisement.InsertAdvertisement()
-                //Advertisement.GetAdvertisements(Advertisement.SelectAdvertisements())
-            );
+            //Context ctx = new Context();
+            //ctx.Database.EnsureCreated();
+            Console.WriteLine($"Database created!");
+            //Task.WhenAll(
+            //    Car.SelectCars(),
+            //    //Car.InsertCar(),
+            //    //Car.ShowCars(Car.SelectCars()),
+            //    //Car.FindByVin("123asd123asd123"),
+            //    Advertisement.InsertAdvertisement()
+            //    //Advertisement.GetAdvertisements(Advertisement.SelectAdvertisements())
+            //);
             Console.ReadLine();
         }
     }

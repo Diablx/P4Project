@@ -20,11 +20,11 @@ namespace MainApp.Forms
 
         private async void CarsViewButton_Click(object sender, System.EventArgs e)
         {
-            List<Car> _cars = new List<Car>();
+            List<Car> cars = new List<Car>();
 
             ListView1.Clear();
-            _cars = await Car.SelectCars();
-            Car.ShowCars(_cars, ListView1);
+            cars = await Car.SelectCars();
+            Car.ShowCars(cars, ListView1);
         }
 
         private void AuctionsViewButton_Click(object sender, System.EventArgs e)

@@ -96,27 +96,13 @@ namespace CarDealership.Models
         public static void ShowCars(List<Car> entityCars, ListView listControl)
         {
             var cars = entityCars;
-
-            Image img = Image.FromFile(@"C:\Users\kajet\Source\Repos\P4Project\MainApp\images\car-mitsubishi1.png");
-            ImageList imglist = new ImageList();
-            imglist.Images.Add(img);
-
-            listControl.View = View.LargeIcon;
-            imglist.ImageSize = new Size(150,150);
-            listControl.LargeImageList = imglist;
-
-            for (int j = 0; j < imglist.Images.Count; j++)
+            if (cars.Count > 0)
             {
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = j;
-                listControl.Items.Add(item);
+                foreach (var car in cars)
+                {
+                    listControl.Items.Add($"Brand: {car.Brand},Model: {car.Model},Condition: {car.Condition},Engine: {car.Engine} cm3");
+                }
             }
-            foreach (var car in cars)
-            {
-                listControl.Items.Add($"Brand: {car.Brand},Model: {car.Model},Condition: {car.Condition},Engine: {car.Engine} cm3");
-            }
-
-
         }
 
         //TO DO: TextBox.Text and CheckBox.IsChecked as parameters
@@ -131,13 +117,11 @@ namespace CarDealership.Models
                 Context context = new Context();
 
                 //adds 'car' to db
-                await context.Cars.AddAsync(car);
-                Console.WriteLine("Added car!");
-
+                context.Cars.Add(car);
                 //saves changes in context and sends to db
                 await context.SaveChangesAsync();
                 Console.WriteLine("Context saved!");
-                
+
                 return car;
             }
             catch (Exception ex)

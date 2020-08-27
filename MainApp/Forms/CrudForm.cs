@@ -41,15 +41,18 @@ namespace MainApp.Forms
                 ParkAssist = parkAs_b.Checked,
                 Shift_Paddles = paddles_b.Checked
             };
-
             try
             {
-                await ctx.Cars.AddAsync(car);
+                ctx.Cars.Add(car);
                 await ctx.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                MessageBox.Show($"{car.VIN} was added to db.");
             }
         }
     }

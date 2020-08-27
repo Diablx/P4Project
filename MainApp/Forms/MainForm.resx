@@ -150,31 +150,31 @@
   <data name="&gt;&gt;Add_Car.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="RentView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="AddAuction_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="RentView_Button.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="AddAuction_Button.Location" type="System.Drawing.Point, System.Drawing">
     <value>474, 3</value>
   </data>
-  <data name="RentView_Button.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="AddAuction_Button.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 32</value>
   </data>
-  <data name="RentView_Button.TabIndex" type="System.Int32, mscorlib">
+  <data name="AddAuction_Button.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="RentView_Button.Text" xml:space="preserve">
-    <value>???</value>
+  <data name="AddAuction_Button.Text" xml:space="preserve">
+    <value>Add auction</value>
   </data>
-  <data name="&gt;&gt;RentView_Button.Name" xml:space="preserve">
-    <value>RentView_Button</value>
+  <data name="&gt;&gt;AddAuction_Button.Name" xml:space="preserve">
+    <value>AddAuction_Button</value>
   </data>
-  <data name="&gt;&gt;RentView_Button.Type" xml:space="preserve">
+  <data name="&gt;&gt;AddAuction_Button.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RentView_Button.Parent" xml:space="preserve">
+  <data name="&gt;&gt;AddAuction_Button.Parent" xml:space="preserve">
     <value>MenuPanel</value>
   </data>
-  <data name="&gt;&gt;RentView_Button.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;AddAuction_Button.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="AuctionsView_Button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">

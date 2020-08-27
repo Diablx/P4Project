@@ -28,25 +28,23 @@ namespace CarDealership.Models
         }
 
         //ctor
-        public Advertisement(Car car, float price, int salesman)
+        public Advertisement(Car car, float price)
         {
             Car = car;
             Price = price;
-            Salesman = salesman;
         }
 
-        public static async Task<Advertisement> InsertAdvertisement()
+        public static async Task<Advertisement> InsertAdvertisement(Advertisement ad)
         {
-            Advertisement ad = null;
+            
             try
             {
                 Context ctx = new Context();
                 ad = new Advertisement(
                     await Car.FindByVin("123asd123asd123"),
-                    200000f,
-                    await Person.FindPersonByPeselAsync(1111111)
+                    200000f
                     );
-                await ctx.Advertisements.AddAsync(ad);
+                ctx.Advertisements.Add(ad);
                 await ctx.SaveChangesAsync();
                 return ad;
             }
