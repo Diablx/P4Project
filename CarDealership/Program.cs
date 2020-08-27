@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 //My usings
 using CarDealership.Models;
@@ -12,9 +13,20 @@ namespace CarDealership
     {
         public static void Main()
         {
-            //Context ctx = new Context();
-            //ctx.Database.EnsureCreated();
-            Console.WriteLine($"Database created!");
+            Context ctx = new Context();
+            try
+            {
+                Console.WriteLine("ensuring db is created.");
+                ctx.Database.EnsureCreated();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.WriteLine($"Database created!");
+            }
             //Task.WhenAll(
             //    Car.SelectCars(),
             //    //Car.InsertCar(),

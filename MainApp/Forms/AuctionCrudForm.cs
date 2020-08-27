@@ -19,73 +19,45 @@ namespace MainApp.Forms
         }
 
         public Car ChosenCar { get; set; }
+        public string ListSelectedItem { get; set; }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Car car = listBox1.SelectedItem as Car;
-            ChosenCar = car;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             Context ctx = new Context();
-            Advertisement ad = new Advertisement
-            (
-                ChosenCar,
-                200000f,
-            ) ;
+            if (ListSelectedItem != null && numericUpDown1.Value > 0)
+            {
+                Advertisement ad = new Advertisement
+                (
+                    await Car.FindByVin(ListSelectedItem),
+                    Convert.ToInt32(numericUpDown1.Value)
+                );
 
-            try
-            {
-                Advertisement.InsertAdvertisement(ad);
+                try
+                {
+                    await Task.Run(async () =>
+                    {
+                        await Advertisement.InsertAdvertisement(ad);
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception)
+            else
             {
+                MessageBox.Show("ad coudln't be added to db. Are you sure that you selected carVin from list ? Maybe price is equal to (or lower) than 0");
+            }
+           
 
-                throw;
-            }
-            finally
-            {
-                MessageBox.Show("Ad was added!");
-            }
             
         }
 
-        private async void db_Add_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Context ctx = new Context();
-            Car car = new Car
+            if (listView1.SelectedItems.Count > 0)
             {
-                //VIN = vin_tb.Text,
-                //Brand = brand_tb.Text,
-                //Model = model_tb.Text,
-                //Type = type_cb.Text,
-                //Engine = Convert.ToInt32(engine_tb.Value),
-                //HP = Convert.ToInt32(hp_tb.Value),
-                //ProductionYear = productionYear_tb.Value,
-                //Mileage = Convert.ToInt32(mileage_tb.Value),
-                //Combustion = combustion_cb.Text,
-                //Color = color_tb.Text,
-                //Condition = condition_cb.Text,
-                //Gearbox = transmission_cb.Text,
-                //GPS = gps_b.Checked,
-                //ESP = esp_b.Checked,
-                //AC = AC_b.Checked,
-                //ParkAssist = parkAs_b.Checked,
-                //Shift_Paddles = paddles_b.Checked
-            };
-            try
-            {
-                ctx.Cars.Add(car);
-                await ctx.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                MessageBox.Show($"{car.VIN} was added to db.");
+                ListSelectedItem = listView1.SelectedItems[0].Text;
             }
         }
     }

@@ -40,22 +40,15 @@ namespace CarDealership.Models
             try
             {
                 Context ctx = new Context();
-                ad = new Advertisement(
-                    await Car.FindByVin("123asd123asd123"),
-                    200000f
-                    );
                 ctx.Advertisements.Add(ad);
                 await ctx.SaveChangesAsync();
+                MessageBox.Show($"Dodano aukcję {ad.ID}!");
                 return ad;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return null;
-            }
-            finally
-            {
-                MessageBox.Show($"Dodano ogłoszenie {ad.ID}!");
             }
         }
 
@@ -73,6 +66,17 @@ namespace CarDealership.Models
             }
         }
 
+        public static void ShowAdvertisements(List<Advertisement> entityAds, ListView listControl)
+        {
+            var ads = entityAds;
+            if (ads.Count > 0)
+            {
+                foreach (var ad in ads)
+                {
+                    listControl.Items.Add($"Price: {ad.Price}");
+                }
+            }
+        }
         //public static async Task GetAdvertisements(Task<List<Advertisement>> entityAdvertisements)
         //{
         //    var advertisements = await entityAdvertisements;

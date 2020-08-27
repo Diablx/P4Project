@@ -105,6 +105,18 @@ namespace CarDealership.Models
             }
         }
 
+        public static void ShowCarsVinOnly(List<Car> entityCars, ListView listControl)
+        {
+            var cars = entityCars;
+            if (cars.Count > 0)
+            {
+                foreach (var car in cars)
+                {
+                    listControl.Items.Add($"{car.VIN}");
+                }
+            }
+        }
+
         //TO DO: TextBox.Text and CheckBox.IsChecked as parameters
         /// <summary>
         /// (async) Creates a car object which is added to , and saves context asynchronously
